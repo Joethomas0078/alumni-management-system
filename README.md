@@ -11,3 +11,4 @@ Alumni Management System is a digital platform designed to help educational inst
 - Alumni registration and login
 - Event management
 - Job postings for alumni
+- Admin dashboard for tracking alumni data
