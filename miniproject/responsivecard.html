@@ -1,0 +1,225 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>main page</title> 
+</head> 
+<body> 
+ 
+    <div class="banner">
+        <div class="navbar">
+           <h1>ALUMNI MANAGMENT SYSTEM</h1>
+             <ul>
+               <!--<li><a href="home.html">Home</a></li>-->
+               <li><a href="adminprofile.php">my profile</a></li>
+              <!-- <li><a href="#">Faculty</a></li>-->
+               <li><a href="glry.html">gallery</a></li>
+               <li><a href="insertadmin.php">add admin</a></li>
+               <li><a href="logout.php">LOGOUT</a></li>
+             </ul>
+         </div>
+
+    <div class="card-container"> 
+        <div class="card"> 
+            <img src="alumini.jpg" alt="Card Image" class="card-img"> 
+            <div class="card-content"> 
+                <h3 class="card-title">ALUMNI</h3> 
+                <p class="card-description"> 
+                    the details about our alumni's
+                
+                </p> 
+                <a href="displayaluminiaction.php" class="card-button">View More</a> 
+            </div> 
+        </div> 
+        <div class="card"> 
+            <img src="faculty.jpg" alt="Card Image" class="card-img"> 
+            <div class="card-content"> 
+                <h3 class="card-title">FACULTY</h3> 
+                <p class="card-description"> 
+                    to know more about the faculty 
+                </p> 
+                <a href="bcatutors.php" class="card-button">View More</a> 
+            </div> 
+        </div> 
+        <div class="card"> 
+            <img src="job.jpg" alt="Card Image" class="card-img"> 
+            <div class="card-content"> 
+                <h3 class="card-title">JOBS</h3> 
+                <p class="card-description"> 
+                   to know more about the job opportunity
+                </p> 
+                <a href="displayjobaction.php" class="card-button">View More</a> 
+            </div> 
+        </div> 
+        <div class="card"> 
+            <img src="event.jpg" alt="Card Image" class="card-img"> 
+            <div class="card-content"> 
+                <h3 class="card-title">EVENT</h3> 
+                <p class="card-description"> 
+                     more about the upcoming events 
+                </p> 
+                <a href="displayeventaction.php" class="card-button">View More</a> 
+            </div> 
+        </div> 
+       
+    </div> 
+
+ 
+</body> 
+</html> 
+<style> 
+/* General reset */ 
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+ 
+/* Body styling */ 
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #f0f0f0; 
+    background-image:url(bgpic.jpg); 
+    padding: 20px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+} 
+ 
+/* Card container styling */ 
+.card-container { 
+    display: flex; 
+    flex-wrap: wrap; /* Allows cards to wrap on smaller screens */ 
+    gap: 30px; /* Adds space between the cards */ 
+    justify-content: center; 
+} 
+ 
+/* Individual card styling */ 
+.card { 
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    overflow: hidden; 
+    transition: transform 0.2s ease-in-out; 
+    width: 300px; /* Increased card width */ 
+    height: 400px; /* Added a fixed height */ 
+} 
+ 
+/* Card hover effect */ 
+.card:hover { 
+    transform: translateY(-10px); 
+} 
+ 
+/* Card image */ 
+.card-img { 
+    width: 100%; 
+    height: 200px; /* Set a fixed height for the image to maintain proportions */ 
+    object-fit: cover; 
+} 
+ 
+/* Card content */ 
+.card-content { 
+    padding: 30px; /* Increased padding for more spacing */ 
+    text-align: center; 
+} 
+ 
+/* Card title */ 
+.card-title { 
+    font-size: 2rem; /* Increased font size */ 
+    margin-bottom: 15px; 
+} 
+ 
+/* Card description */ 
+.card-description { 
+    font-size: 1.2rem; /* Slightly larger text for the description */ 
+    margin-bottom: 25px; 
+    color: #666; 
+} 
+ 
+/* Card button */ 
+.card-button { 
+    background-color: #661430; 
+    color: white; 
+    padding: 15px 30px; /* Larger button */ 
+    text-decoration: none; 
+    border-radius: 5px; 
+    font-size:1.2rem; /* Increased font size for the button */ 
+    transition: background-color 0.3s ease-in-out; 
+} 
+ 
+.card-button:hover { 
+    background-color: #9a082c; 
+    color: black;
+} 
+ 
+/* Responsive behavior */ 
+@media (max-width: 768px) { 
+    .card { 
+        width: 100%; /* Cards take full width on smaller screens */ 
+        height: auto; /* Allow height to adjust naturally on small screens */ 
+    } 
+ 
+    .card-title { 
+        font-size: 1.5rem; 
+    } 
+ 
+    .card-description { 
+        font-size: 1rem; 
+    } 
+ 
+    .card-button { 
+        padding: 10px 20px; 
+        font-size: 1rem; 
+    } 
+} 
+
+
+
+.banner{
+        width: 100%;
+        height: 100vh;
+       
+        background-size: cover;
+        background-position: center;
+    }
+    h1{
+       
+       color: #fff;
+       cursor: pointer;
+   }
+    .navbar{
+        width: 85%;
+        margin:auto ;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .navbar ul li{
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+    }
+    .navbar ul li a{
+     text-decoration: none;
+     color: #fff;
+     text-transform: uppercase;
+    }
+    .navbar ul li ::after{
+     content: '';
+     height: 3px;
+     width: 0%;
+     background:#009688 ;
+     position: absolute;
+     left: 0;
+     bottom: -10px;
+     transition: 0.1s;
+    }
+    .navbar ul li :hover::after{
+        width: 100%;
+    }
+ 
+</style>

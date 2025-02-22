@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>user type</title> 
+  </head>
+  <body>
+     <section class="container">
+        <header>CHOOSE YOUR ROLE</header>
+        <form class="form">
+            <div class="column">
+              
+             
+           
+    
+                <button type="button" onclick="location.href='adminlogin.html'">ADMIN</button>
+                <button type="button" onclick="location.href='userlogin.html'">ALUMNI</button>
+            </div>
+            
+       <br><br>
+     
+    </form>
+     </section>
+     <script></script>
+  </body>
+</html>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family:"Poppins",sans-serif ;
+    }
+    body {
+      
+        display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh; 
+    background-image: url(bgpic.jpg);
+    background-size: cover; 
+    background-position: center; 
+        
+        
+    }
+    .container {
+        position: relative;
+        max-width: 700px;
+        width: 100%;
+        background: #eae7e7;
+        padding: 25px;
+        border-radius: 8px;
+
+        box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    .container header {
+        font-size: 1.5rem;
+        color: #333;
+        font-weight:bolder;
+        text-align: center;
+    }
+    .container .form {
+        margin-top: 8px;
+    }
+    .form .column{
+        display: flex;
+        column-gap: 15px;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+   
+   
+    .form button {
+        height: 65px;
+        width: 50%;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bolder;
+        border: none;
+        margin-top: 50px;
+        cursor: pointer;
+        border-radius:5px;
+        transition: all 0.2s ease;
+        /*background-color: rgba(130,106,251);*/
+        background-color:#2980b9;
+    }
+    .form button:hover{
+        /*background-color: rgba(88,56,250);*/
+        background-color:#e74c3c
+    }
+   
+    
+    @media screen and (max-width: 500px){
+        .form .column {
+            flex-wrap: wrap;
+        }
+       
+    }
+</style>

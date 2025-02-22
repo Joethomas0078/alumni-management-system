@@ -1,0 +1,83 @@
+
+.retrunkey a{
+  color: #000;
+  text-decoration: none;
+  font-size: small;
+}
+.retrunkey a:hover{
+  text-decoration: underline;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #009879;
+}
+
+.container {
+    margin-top: 30px;
+    background: #ffffff;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 25px;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #009879;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+table.dataTable tbody tr {
+    background-color: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
+table.dataTable tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.btn {
+    font-size: 0.875rem;
+}
+
+.btn-primary {
+    background-color: #009879;
+    border-color: #007960;
+}
+
+.btn-primary:hover {
+    background-color: #007960;
+    border-color: #005f4a;
+}
+
+.btn-warning {
+    background-color: #2872c1;
+    border-color: #1961c6;
+}
+
+.btn-warning:hover {
+    background-color: #175cbc;
+    border-color: #1167bd;
+}
+
+.btn-danger {
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.btn-danger:hover {
+    background-color: #c9302c;
+    border-color: #ac2925;
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Video Gallery</title> 
+    <style> 
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif; 
+        } 
+        
+        .container { 
+            position: relative; 
+            min-height: 100vh; 
+            background-image: url('bgimage.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        } 
+ 
+        .container h1 { 
+            color: #f9f5f5; 
+            text-align: center; 
+            padding: 15px; 
+            font-size: 40px; 
+        } 
+ 
+        /* Back button styling */ 
+        .back-button { 
+            position: absolute; 
+            top: 20px; 
+            left: 20px; 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            background-color: #6a686b; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            text-decoration: none; 
+        } 
+ 
+        .back-button:hover { 
+            background-color: #b6b6bd; 
+        } 
+ 
+        .add-video { 
+            text-align: center; 
+            margin: 20px 0; 
+        } 
+ 
+        .add-video button { 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            cursor: pointer; 
+        } 
+ 
+        .add-video input { 
+            display: none; 
+        } 
+ 
+        .video-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 15px; 
+            justify-content: center; 
+            padding: 10px; 
+        } 
+ 
+        .video { 
+            position: relative; 
+            height: 250px; 
+            width: 350px; 
+            border: 4px solid #fff; 
+            border-radius: 5px; 
+            box-shadow: 0 5px 15px rgba(0, 0, 0, .7); 
+            overflow: hidden; 
+        } 
+ 
+        .video video { 
+            height: 100%; 
+            width: 100%; 
+            object-fit: cover; 
+            transition: .2s linear; 
+        } 
+ 
+        .video:hover video { 
+            transform: scale(1.1); 
+        } 
+ 
+        .video .delete-btn { 
+            position: absolute; 
+            top: 5px; 
+            right: 5px; 
+            background: red; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            padding: 5px 10px; 
+            cursor: pointer; 
+            z-index: 10; 
+        } 
+ 
+        .popup-video { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            z-index: 100; 
+            background: rgba(0, 0, 0, .8); 
+            height: 100%; 
+            width: 100%; 
+            display: none; 
+        } 
+ 
+        .popup-video video { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 750px; 
+            border-radius: 5px; 
+            border: 4px solid #fff; 
+            object-fit: cover; 
+        } 
+ 
+        .popup-video span { 
+            position: absolute; 
+            top: 5px; 
+            right: 20px; 
+            font-size: 50px; 
+            color: #fff; 
+            font-weight: bolder; 
+            z-index: 100; 
+            cursor: pointer; 
+        } 
+ 
+        @media (max-width: 768px) { 
+            .popup-video video { 
+                width: 95%; 
+            } 
+        } 
+    </style> 
+</head> 
+<body> 
+    <div class="container"> 
+        <!-- Back Button --> 
+        <a href="responsivecard.html" class="back-button">Back</a> 
+ 
+        <h1>Gallery</h1> 
+        <div class="add-video"> 
+            <button id="addVideoButton">Add New Video</button> 
+            <input type="file" id="videoInput" accept="video/*"> 
+        </div> 
+        <div class="video-container" id="videoContainer"> 
+            <!-- Videos will be dynamically added here --></div> 
+        <div class="popup-video" id="popupVideo"> 
+            <span>&times;</span> 
+            <video muted autoplay controls></video> 
+        </div> 
+    </div> 
+ 
+    <script> 
+        const addVideoButton = document.getElementById('addVideoButton'); 
+        const videoInput = document.getElementById('videoInput'); 
+        const videoContainer = document.getElementById('videoContainer'); 
+        const popupVideo = document.getElementById('popupVideo'); 
+ 
+        // Load videos from localStorage on page load 
+        document.addEventListener('DOMContentLoaded', loadVideosFromStorage); 
+ 
+        // Open file input when button is clicked 
+        addVideoButton.addEventListener('click', () => { 
+            videoInput.click(); 
+        }); 
+ 
+        // Handle file input change event 
+        videoInput.addEventListener('change', (event) => { 
+            const file = event.target.files[0]; 
+            if (file) { 
+                const reader = new FileReader(); 
+                reader.onload = (e) => { 
+                    const videoBase64 = e.target.result; // Base64 video data 
+                    addVideoToGallery(videoBase64); 
+                    saveVideoToStorage(videoBase64); 
+                }; 
+                reader.readAsDataURL(file); 
+            } 
+        }); 
+ 
+        // Add video to gallery 
+        function addVideoToGallery(videoBase64) { 
+            const videoElement = document.createElement('div'); 
+            videoElement.classList.add('video'); 
+            videoElement.innerHTML = ` 
+                <video src="${videoBase64}" muted></video> 
+                <button class="delete-btn">Delete</button> 
+            `; 
+            videoContainer.appendChild(videoElement); 
+ 
+            // Add click event to play the video in a popup 
+            videoElement.querySelector('video').addEventListener('click', () => { 
+                popupVideo.style.display = 'block'; 
+                popupVideo.querySelector('video').src = videoBase64; 
+            }); 
+ 
+            // Add click event to delete the video 
+            videoElement.querySelector('.delete-btn').addEventListener('click', () => { 
+                deleteVideo(videoBase64, videoElement); 
+            }); 
+        } 
+ 
+        // Save video Base64 string to localStorage 
+        function saveVideoToStorage(videoBase64) { 
+            const videos = JSON.parse(localStorage.getItem('videos')) || []; 
+            videos.push(videoBase64); 
+            localStorage.setItem('videos', JSON.stringify(videos)); 
+        } 
+ 
+        // Load videos from localStorage 
+        function loadVideosFromStorage() { 
+            const videos = JSON.parse(localStorage.getItem('videos')) || []; 
+            videos.forEach((videoBase64) => { 
+                addVideoToGallery(videoBase64); 
+            }); 
+        } 
+ 
+        // Delete video from localStorage and gallery 
+        function deleteVideo(videoBase64, videoElement) { 
+            const videos = JSON.parse(localStorage.getItem('videos')) || []; 
+            const updatedVideos = videos.filter((video) => video !== videoBase64); 
+            localStorage.setItem('videos', JSON.stringify(updatedVideos)); 
+            videoElement.remove(); 
+        } 
+ 
+        // Close popup 
+        popupVideo.querySelector('span').addEventListener('click', () => { 
+            popupVideo.style.display = 'none'; 
+            popupVideo.querySelector('video').pause(); 
+        }); 
+ 
+        // Close popup on background click 
+        popupVideo.addEventListener('click', (e) => { 
+            if (e.target === popupVideo) { 
+                popupVideo.style.display = 'none'; 
+                popupVideo.querySelector('video').pause(); 
+            } 
+        }); 
+    </script> 
+</body> 
+</html>

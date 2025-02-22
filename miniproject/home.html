@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Alumni Managment System</title>
+        
+    </head>
+    <body>
+        <div class="banner" >
+            <video autoplay loop muted plays-inline class="bg-video">
+                <source src="bgvideo.mp4" type="video/mp4">
+            </video>
+           <div class="navbar">
+              <h1>ALUMNI MANAGMENT SYSTEM</h1>
+                <ul>
+                  <!--<li><a href="home.html">Home</a></li>-->
+                  <li><a href="aboutus.html">About Us</a></li>
+                  <li><a href="facultydescrip.html">Faculty</a></li>
+                  <li><a href="aluminidescrip.html">Alumni</a></li>
+                  <li><a href="contactus.html">Contact</a></li>
+                </ul>
+            </div>
+                    <div class="content">
+                     <h1>WELCOME BACK <span>ALUMNI</span></h1>
+                     <p>Hey,its time to take a break from your busy life.<br> Lets revisit our college years once more.<br>Lets Come on,
+                     the time to act is now.
+                      </p>
+                        <div class="button">
+                         <center>
+                          <a href="userselection.html">GET STARTED</a>
+                         </center>
+                        </div>
+                        <br>
+                        
+                    </div>
+               
+             
+             <footer>
+                &copy;2024 BVM HOLY CROSS COLLEGE. ALL RIGHTS RESERVED
+            </footer>
+        </div>
+     </body>
+</html>
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+
+    }
+    .banner{
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0.75)),url(bgpic.jpg);
+        background-size: cover;
+        background-position: center;
+    }
+    .navbar{
+        width: 85%;
+        margin:auto ;
+        padding: 35px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    h1{
+       
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .navbar ul li{
+      list-style: none;
+      display: inline-block;
+      margin: 0 20px;
+      position: relative;
+    }
+    .navbar ul li a{
+     text-decoration: none;
+     color: #fff;
+     text-transform: uppercase;
+    }
+    .navbar ul li ::after{
+     content: '';
+     height: 3px;
+     width: 0%;
+     background:#009688 ;
+     position: absolute;
+     left: 0;
+     bottom: -10px;
+     transition: 0.1s;
+    }
+    .navbar ul li :hover::after{
+        width: 100%;
+    }
+    .content{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        color: #fff;
+    }
+    .content p{
+        margin: 20px auto;
+        font-weight: 100;
+        line-height: 25px;
+    }
+    .button{
+        width: 150px;
+        padding: 15px 0px;
+        text-align: center;
+        letter-spacing: 1px;
+        margin:auto;
+        border-radius: 25px;
+        font-weight: bold;
+        border: 2px solid #009688;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+        
+    }
+    
+    .button a{
+        color:#fff;
+        text-decoration: none;
+        text-align: center;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: medium;
+    }
+    .button:hover a{
+        color: #009688;
+        
+       
+        
+        
+    }
+    span{
+        color:#009688;
+    }
+    footer{
+        text-align: center;
+        padding: 2px;
+        font-size: small;
+        color: #dbd6d690;
+        font-stretch: ultra-condensed;
+        background-color:rgba(0,0,0,0.95) ;
+    }
+    .bg-video{
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        filter:brightness(55%);
+        
+        
+    }
+</style>
